@@ -1,0 +1,8 @@
+button {
+    position: fixed;
+    left: 50%;
+    top: 25%;
+    background-color: red;
+    color: aliceblue;
+    font-size: 2em;
+}
