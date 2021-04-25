@@ -11,7 +11,6 @@ function load(method, url) {
         if (xhr.status !== 200) {
             button.innerHTML = "Getting data";
             button.style.opacity = "0.5";
-            button.disabled = true;
         }
 
 
@@ -36,12 +35,23 @@ function load(method, url) {
 
 
 }
-arrURL = ["https://rickandmortyapi.com/api/character/?page=25", "https://rickandmortyapi.com/api/character/?page=1", "https://rickandmortyapi.com/api/character/?page=3"];
-let count = 0
-button.addEventListener("click", function() {
-   
 
-    load("GET", `${arrURL[count]}`);
-    count++;
+arrURL = ["https://rickandmortyapi.com/api/character/?page=1", "https://rickandmortyapi.com/api/character/?page=1", "https://rickandmortyapi.com/api/character/?page=10"];
+// let count = 0
+// button.addEventListener("click", function() {
 
-})
+
+//     load("GET", `${arrURL[count]}`);
+//     count++;
+
+// })
+function chechBackEnd(arr) {
+    let count = 0;
+
+    function run() {
+        load("GET", `${arr[count]}`);
+        count++
+    }
+    return run;
+}
+button.addEventListener("click", chechBackEnd(arrURL));
